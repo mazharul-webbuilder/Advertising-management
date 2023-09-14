@@ -8,6 +8,9 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="{{asset('asset/css/bootstrap.css')}}">
     <link rel="stylesheet" href="{{asset('asset/css/style.css')}}">
+    {{--Datatable assets--}}
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
 </head>
 <body>
 <div class="container">
@@ -68,13 +71,46 @@
             </div>
         </div>
     @else
-        <h1>Ad User Dashboard</h1>
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col-md-10 mx-auto">
+                    <div class="card">
+                        <div class="card-header py-2 card-header-bg text-white d-flex justify-content-between">
+                            <div class="">Manage All Your Ads</div>
+                            <div class="">
+                                <button class="btn custom-button-bg text-white">Add New Ad</button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-bordered table-striped" id="datatable-item">
+                                <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Type Of Add</th>
+                                    <th>Ad</th>
+                                    <th>Target Audience</th>
+                                    <th>Duration</th>
+                                    <th>Total Days</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     @endif
 
 </div>
 
 <script src="{{asset('asset/js/code.jquery.com_jquery-3.7.0.js')}}"></script>
 <script src="{{asset('asset/js/bootstrap.js')}}"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
 <script src="{{asset('asset/js/main.js')}}"></script>
+
+@include('ajax.user_ads_script')
 </body>
 </html>

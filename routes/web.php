@@ -19,8 +19,13 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+/*Ad User Auth Routes*/
+Route::middleware('auth')->prefix('user/')->name('user.')->group(function (){
+    Route::get('ads', [AdController::class, 'getAllAds'])->name('all.ads');
+});
 
 
+/*Admin Routes*/
 Route::middleware('admin')->prefix('admin/')->name('admin.')->group(function (){
    Route::get('advertisement/countries', [AdminController::class, 'allCountries'])->name('all.countries');
    Route::get('get/country', [AdminController::class, 'getCountry'])->name('get.country');
