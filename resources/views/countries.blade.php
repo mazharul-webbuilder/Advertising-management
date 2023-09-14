@@ -125,10 +125,10 @@
                                     <label for="country" class="form-label">Country</label>
                                 </div>
                                 <div class="col-md-9">
-                                    <select name="code" id="" class="form-control">
+                                    <select name="code" id="" class="form-control select_country">
                                         <option value=""></option>
                                         @foreach(countries() as $country)
-                                            <option value="{{$country->code}}">{{$country->name}}</option>
+                                            <option value="{{$country->code}}" class="">{{$country->name}}</option>
                                         @endforeach
                                     </select>
                                     <span class="error-message" id="email-error"></span>
@@ -139,7 +139,7 @@
                                     <label for="country" class="form-label">Number Of Ad Per Day</label>
                                 </div>
                                 <div class="col-md-9">
-                                    <input type="number" class="form-control" name="per_day_ad_limit">
+                                    <input type="number" class="form-control" name="per_day_ad_limit" id="perDayAdLimit">
                                     <span class="error-message" id="email-error"></span>
                                 </div>
                             </div>

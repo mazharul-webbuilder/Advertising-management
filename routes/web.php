@@ -23,6 +23,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('admin')->prefix('admin/')->name('admin.')->group(function (){
    Route::get('advertisement/countries', [AdminController::class, 'allCountries'])->name('all.countries');
+   Route::get('get/country', [AdminController::class, 'getCountry'])->name('get.country');
    Route::get('advertisement/countries/status/change', [AdminController::class, 'changeCountryActiveStatus'])->name('country.status.change');
    Route::post('set/add/limit', CountryAdLimitSetController::class)->name('add.limit.per.day');
 });

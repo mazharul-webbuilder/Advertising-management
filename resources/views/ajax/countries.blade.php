@@ -36,6 +36,26 @@ const Toast = Swal.mixin({
         })
     })
 </script>
+{{--Get Country Data--}}
+<script>
+    $(document).ready(function () {
+        $('.select_country').on('change', function (){
+            const country_code = $(this).val()
+            $.ajax({
+                url: '{{route('admin.get.country')}}',
+                method: 'get',
+                data: {code: country_code},
+                success: function (data) {
+                    if (data.status === 200)
+                    {
+                        $('#perDayAdLimit').val(data.country.per_day_ad_limit)
+                    }
+                }
+            })
+        })
+    })
+</script>
+{{--End Country--}}
 
 <script>
     $(document).ready(function (){
@@ -59,6 +79,12 @@ const Toast = Swal.mixin({
                         /*Show Update Data on Table*/
                         let countryRow = $('.country-code-' + data.country.code)
                         countryRow.text(data.country.per_day_ad_limit)
+
+                        /*Show Success Notification*/
+                        Toast.fire({
+                            'icon': data.type,
+                            'title': data.message
+                        })
                     }
                 },
                 error: function(xhr, status, error) {

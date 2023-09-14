@@ -14,6 +14,15 @@ class AdminController extends Controller
         return view('countries');
     }
 
+    public function getCountry(Request $request)
+    {
+        $country = Country::where('code', $request->code)->first();
+        return \response()->json([
+           'status' => Response::HTTP_OK,
+           'country' => $country
+        ]);
+    }
+
     public function changeCountryActiveStatus(Request $request)
     {
         $coutnry = Country::where('code', $request->code)->first();
