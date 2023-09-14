@@ -22,8 +22,8 @@ class CountryAdLimitRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'code' => 'required',
-            'per_day_ad_limit' => 'required'
+            'code' => 'required|string|min:2|max:2',
+            'per_day_ad_limit' => 'required|gt:0'
         ];
     }
 }

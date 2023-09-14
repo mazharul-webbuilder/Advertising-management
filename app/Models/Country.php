@@ -9,6 +9,8 @@ class Country extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['per_day_ad_limit'];
+
     public function users()
     {
         return $this->hasMany(User::class);

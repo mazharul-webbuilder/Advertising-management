@@ -73,6 +73,7 @@
                                         <tr>
                                             <th>Country</th>
                                             <th>Code</th>
+                                            <th>Per Day Ad Limit</th>
                                             <th>Total Users</th>
                                             <th>Status</th>
                                         </tr>
@@ -82,10 +83,11 @@
                                             <tr>
                                                 <td>{{$country->name}}</td>
                                                 <td>{{$country->code}}</td>
+                                                <td class="country-code-{{$country->code}}">{{$country->per_day_ad_limit}}</td>
                                                 <td>{{$country->users()->count()}}</td>
                                                 <td>
                                                     <label class="switch">
-                                                        <input type="checkbox" class="country-switch" value="{{$country->code}}" {{$country->status == 1 ? 'checked' : ''}}>
+                                                        <input type="checkbox" class="country-switch " value="{{$country->code}}" {{$country->status == 1 ? 'checked' : ''}}>
                                                         <span class="slider round"></span>
                                                     </label>
                                                 </td>
@@ -152,7 +154,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary modal-close-btn" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>

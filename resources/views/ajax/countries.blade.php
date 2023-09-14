@@ -51,7 +51,15 @@ const Toast = Swal.mixin({
                 contentType: false,
                 processData: false,
                 success: function (data) {
-                    console.log(data)
+                    if (data.status === 200 ) {
+                        $('.modal-close-btn').trigger('click');
+                        /*Reset The Form*/
+                        AdminCountryAddSetForm[0].reset()
+
+                        /*Show Update Data on Table*/
+                        let countryRow = $('.country-code-' + data.country.code)
+                        countryRow.text(data.country.per_day_ad_limit)
+                    }
                 },
                 error: function(xhr, status, error) {
                     if (xhr.status === 422) {
